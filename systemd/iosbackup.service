@@ -1,0 +1,17 @@
+[Unit]
+Description=Automatisches iOS-Backup
+
+[Service]
+Type=simple
+
+# Wartezeit, um das Gerät sicher zu erkennen
+ExecStartPre=/bin/sleep 10
+
+# Starten des Backup-Hauptprogramms
+ExecStart=/home/iosback/scripts/backup.sh
+
+[Install]
+
+# Service nach dem Start des "usbmuxd"-Services starten
+WantedBy=usbmuxd.service
+
